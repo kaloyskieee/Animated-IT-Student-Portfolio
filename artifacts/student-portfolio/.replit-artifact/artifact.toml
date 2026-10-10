@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "IT Student Portfolio"
+description = "A polished, responsive portfolio website for an aspiring IT professional, with animated sections for their introduction, skills, editable project examples, education, interests, and contact links."
+version = "1.0.0"
+id = "artifacts/student-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21090
+
+[services.development]
+run = "pnpm --filter @workspace/student-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/student-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/student-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21090"
+BASE_PATH = "/"

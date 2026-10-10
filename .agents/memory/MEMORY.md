@@ -1,0 +1,1 @@
+- [Preview scroll reveals](preview-scroll-reveals.md) — full-page captures do not scroll through IntersectionObserver-driven content; check the interactive page before assuming sections are missing.
